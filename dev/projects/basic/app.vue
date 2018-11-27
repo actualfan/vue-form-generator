@@ -27,7 +27,7 @@ export default {
 			selected: [],
 
 			model: {
-				first_name: "David",
+				length: 0,
 				last_name: "Higgins",
 				status: true
 			},
@@ -36,9 +36,10 @@ export default {
 				fields: [
 					{
 						type: "input",
-						inputType: "text",
-						label: "First Name",
-						model: "first_name",
+						inputType: "number",
+						label: "Length",
+						model: "length",
+						unit: "m",
 						attributes: {
 							input: {
 								"data-toggle": "tooltip"
