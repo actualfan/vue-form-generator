@@ -39,6 +39,7 @@ export default {
 						inputType: "number",
 						label: "Length",
 						model: "length",
+						required: true,
 						unit: "m",
 						attributes: {
 							input: {
@@ -53,6 +54,7 @@ export default {
 						type: "checkbox",
 						label: "Active",
 						model: "status",
+						required: true,
 						attributes: {
 							input: {
 								"data-toggle": "tooltip"
@@ -64,6 +66,7 @@ export default {
 						inputType: "color",
 						label: "Color",
 						model: "color",
+						required: true,
 						attributes: {
 							input: {
 								"data-target": "tooltip"
