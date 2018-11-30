@@ -1,6 +1,6 @@
 <template lang="pug">
 .wrapper(v-attributes="'wrapper'")
-	div.form-group.flex-view
+	div.flex-view
 		input.form-control(
 			:id="getFieldID(schema)",
 			:type="schema.inputType.toLowerCase()",
