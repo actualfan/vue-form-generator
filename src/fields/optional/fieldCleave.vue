@@ -1,5 +1,7 @@
 <template lang="pug">
-	input.form-control(type="text", :value="value", :autocomplete="schema.autocomplete", :disabled="disabled", :placeholder="schema.placeholder", :readonly="schema.readonly", :name="schema.inputName", :id="getFieldID(schema)")
+	div.flex-view
+		input.form-control(type="text", :value="value", :autocomplete="schema.autocomplete", :disabled="disabled", :placeholder="schema.placeholder", :readonly="schema.readonly", :name="schema.inputName", :id="getFieldID(schema)")
+		span.helper(v-if="schema.unit") {{ schema.unit }}
 </template>
 
 <script>
@@ -11,15 +13,17 @@ export default {
 
 	data() {
 		return {
-			cleave: null
+			cleave: null,
+			inputEle: null
 		};
 	},
 
 	mounted() {
 		this.$nextTick(function() {
+			this.inputEle = this.$el.querySelector("input");
 			if (window.Cleave) {
 				this.cleave = new window.Cleave(
-					this.$el,
+					this.inputEle,
 					defaults(this.schema.cleaveOptions || {}, {
 						// Credit Card
 						creditCard: false,
@@ -51,7 +55,7 @@ export default {
 						this.value = this.cleave.properties.result;
 					});
 				} else {
-					this.$el.addEventListener("input", this.inputChange);
+					this.inputEle.addEventListener("input", this.inputChange);
 				}
 			} else {
 				console.warn("Cleave is missing. Please download from https://github.com/nosir/cleave.js/ and load the script in the HTML head section!");
@@ -61,14 +65,14 @@ export default {
 
 	methods: {
 		inputChange() {
-			this.value = this.$el.value;
+			this.value = this.inputEle.value;
 		}
 	},
 
 	beforeDestroy() {
 		if (this.cleave) {
 			this.cleave.destroy();
-			this.$el.removeEventListener("input", this.inputChange);
+			this.inputEle.removeEventListener("input", this.inputChange);
 		}
 	}
 };
@@ -76,5 +80,12 @@ export default {
 
 <style lang="scss">
 .vue-form-generator .field-cleave {
+	.flex-view {
+		display: flex;
+		align-items: center;
+	}
+	.helper {
+		margin-left: 3px;
+	}
 }
 </style>

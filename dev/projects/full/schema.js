@@ -785,6 +785,7 @@ export default {
 			type: "cleave",
 			label: "Mobile  (Cleave.js field)",
 			model: "mobile",
+			unit: "km",
 			cleaveOptions: {
 				// Credit Card
 				creditCard: false,
