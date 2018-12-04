@@ -1,5 +1,5 @@
 <template lang="pug">
-	div.flex-view
+	div.flex-view.form-group
 		input.form-control(type="text", :value="value", :autocomplete="schema.autocomplete", :disabled="disabled", :placeholder="schema.placeholder", :readonly="schema.readonly", :name="schema.inputName", :id="getFieldID(schema)")
 		span.helper(v-if="schema.unit") {{ schema.unit }}
 </template>
