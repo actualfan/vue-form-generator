@@ -133,5 +133,10 @@ export default {
 </script>
 
 
-<style lang="sass">
+<style lang="scss">
+	.field-select {
+		select {
+			margin-right: 4em;
+		}
+	}
 </style>

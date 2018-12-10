@@ -1,7 +1,7 @@
 <template lang="pug">
 	div.flex-view.form-group
 		input.form-control(type="text", :value="value", :autocomplete="schema.autocomplete", :disabled="disabled", :placeholder="schema.placeholder", :readonly="schema.readonly", :name="schema.inputName", :id="getFieldID(schema)")
-		span.helper(v-if="schema.unit") {{ schema.unit }}
+		span.helper {{ pseudoUnit }}
 </template>
 
 <script>
@@ -63,6 +63,12 @@ export default {
 		});
 	},
 
+	computed: {
+		pseudoUnit() {
+			return this.schema.unit ? this.schema.unit : "";
+		}
+	},
+
 	methods: {
 		inputChange() {
 			this.value = this.inputEle.value;
@@ -85,7 +91,8 @@ export default {
 		align-items: center;
 	}
 	.helper {
-		margin-left: 3px;
+		margin: auto 0.5em;
+		width: 3em;
 	}
 }
 </style>

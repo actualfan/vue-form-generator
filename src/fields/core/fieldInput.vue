@@ -38,7 +38,7 @@
 			:width="schema.width",
 			:files="schema.files"
 			v-attributes="'input'")
-		span.helper(v-if="schema.unit") {{ schema.unit }}
+		span.helper {{ pseudoUnit }}
 	span.helper(v-if="schema.inputType.toLowerCase() === 'color' || schema.inputType.toLowerCase() === 'range'") {{ value }}
 </template>
 
@@ -109,6 +109,11 @@ export default {
 			}
 		}
 	},
+	computed: {
+		pseudoUnit() {
+			return this.schema.unit ? this.schema.unit : "";
+		}
+	},
 
 	mounted() {
 		switch (this.schema.inputType.toLowerCase()) {
@@ -168,6 +173,7 @@ export default {
 
 	.helper {
 		margin: auto 0.5em;
+		width: 3em;
 	}
 
 	.flex-view {

@@ -27,7 +27,10 @@ export default {
 			selected: [],
 
 			model: {
+				category: null,
 				length: 0,
+				weight: 0,
+				count: 0,
 				last_name: "Higgins",
 				status: true
 			},
@@ -35,12 +38,58 @@ export default {
 			schema: {
 				fields: [
 					{
+						type: "select",
+						model: "category",
+						values: [
+							"Self",
+							"Cafétéria",
+							"Plateaux repas",
+							"Restaurant",
+							"Autres"
+						],
+						selectOptions: {
+							noneSelectedText: "Cliquez pour sélectionner"
+						},
+						required: true
+					},
+					{
 						type: "input",
 						inputType: "number",
 						label: "Length",
 						model: "length",
 						required: true,
 						unit: "m",
+						attributes: {
+							input: {
+								"data-toggle": "tooltip"
+							},
+							wrapper: {
+								"data-target": "input"
+							}
+						}
+					},
+					{
+						type: "input",
+						inputType: "number",
+						label: "Weight",
+						model: "weight",
+						required: true,
+						unit: "kgwwww",
+						attributes: {
+							input: {
+								"data-toggle": "tooltip"
+							},
+							wrapper: {
+								"data-target": "input"
+							}
+						}
+					},
+					{
+						type: "input",
+						inputType: "number",
+						label: "Count",
+						model: "count",
+						required: true,
 						attributes: {
 							input: {
 								"data-toggle": "tooltip"
