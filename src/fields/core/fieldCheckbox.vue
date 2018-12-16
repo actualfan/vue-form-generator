@@ -1,12 +1,16 @@
 <template lang="pug">
-	input(:id="getFieldID(schema)", type="checkbox", v-model="value", :autocomplete="schema.autocomplete", :disabled="disabled", :name="schema.inputName", :class="schema.fieldClasses", :required="schema.required", v-attributes="'input'")
+	checkbox(:id="getFieldID(schema)", v-model="value", :autocomplete="schema.autocomplete", :disabled="disabled", :name="schema.inputName", :class="schema.fieldClasses", :required="schema.required")
 </template>
 
 <script>
 import abstractField from "../abstractField";
+import checkbox from "../../utils/MaterialCheckbox/components/material-checkbox.vue";
 
 export default {
-	mixins: [abstractField]
+	mixins: [abstractField],
+	components: {
+		checkbox
+	}
 };
 </script>
 

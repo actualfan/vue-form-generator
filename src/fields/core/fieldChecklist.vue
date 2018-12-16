@@ -2,9 +2,8 @@
 	.wrapper(v-attributes="'wrapper'")
 		.listbox.form-control(v-if="schema.listBox", :disabled="disabled")
 			.list-row(v-for="item in items", :class="{'is-checked': isItemChecked(item)}")
-				label
-					input(:id="getFieldID(schema)", type="checkbox", :checked="isItemChecked(item)", :disabled="disabled", @change="onChanged($event, item)", :name="getInputName(item)", v-attributes="'input'")
-					| {{ getItemName(item) }}
+				checkbox(:id="getFieldID(schema)", :checked="isItemChecked(item)", :disabled="disabled", @change="(value) => onChanged(value, item)", :name="getInputName(item)")
+					span {{ getItemName(item) }}
 
 		.combobox.form-control(v-if="!schema.listBox", :disabled="disabled")
 			.mainRow(@click="onExpandCombo", :class="{ expanded: comboExpanded }")
@@ -13,18 +12,22 @@
 
 			.dropList
 				.list-row(v-if="comboExpanded", v-for="item in items", :class="{'is-checked': isItemChecked(item)}")
-					label
-						input(:id="getFieldID(schema)", type="checkbox", :checked="isItemChecked(item)", :disabled="disabled", @change="onChanged($event, item)", :name="getInputName(item)", v-attributes="'input'")
-						| {{ getItemName(item) }}
+					checkbox(:id="getFieldID(schema)", :checked="isItemChecked(item)", :disabled="disabled", @change="(value) => onChanged(value, item)", :name="getInputName(item)")
+						span {{ getItemName(item) }}
 </template>
 
 <script>
 import { isObject, isNil, clone } from "lodash";
 import abstractField from "../abstractField";
 import { slugify } from "../../utils/schema";
+import checkbox from "../../utils/MaterialCheckbox/components/material-checkbox.vue";
 
 export default {
 	mixins: [abstractField],
+
+	components: {
+		checkbox
+	},
 
 	data() {
 		return {
@@ -90,12 +93,12 @@ export default {
 			return this.value && this.value.indexOf(this.getItemValue(item)) !== -1;
 		},
 
-		onChanged(event, item) {
+		onChanged(value, item) {
 			if (isNil(this.value) || !Array.isArray(this.value)) {
 				this.value = [];
 			}
 
-			if (event.target.checked) {
+			if (value) {
 				// Note: If you modify this.value array, it won't trigger the `set` in computed field
 				const arr = clone(this.value);
 				arr.push(this.getItemValue(item));
