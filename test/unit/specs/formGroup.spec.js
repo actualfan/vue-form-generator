@@ -25,7 +25,6 @@ describe("formGroup.vue", () => {
 		});
 
 		it("should return true", () => {
-			expect(form.fieldTypeHasLabel({ type: "input", inputType: "checkbox", label: "checkbox" })).to.be.true;
 			expect(form.fieldTypeHasLabel({ type: "input", inputType: "text", label: "text" })).to.be.true;
 			expect(form.fieldTypeHasLabel({ type: "checklist", label: "checklist" })).to.be.true;
 			expect(form.fieldTypeHasLabel({ type: "input", inputType: "image", label: "image" })).to.be.true;

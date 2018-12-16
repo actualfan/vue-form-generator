@@ -68,6 +68,7 @@ export default {
 				case "button":
 				case "submit":
 				case "reset":
+				case "checkbox":
 					return false;
 				default:
 					return true;
