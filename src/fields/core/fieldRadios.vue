@@ -1,17 +1,20 @@
 <template lang="pug">
 	.radio-list(:disabled="disabled", v-attributes="'wrapper'")
-		label(v-for="item in items", :class="{'is-checked': isItemChecked(item)}", v-attributes="'label'")
-			input(:id="getFieldID(schema)", type="radio", :disabled="disabled", :name="id", @click="onSelection(item)", :value="getItemValue(item)", :checked="isItemChecked(item)", :class="schema.fieldClasses", :required="schema.required", v-attributes="'input'")
-			| {{ getItemName(item) }}
+		radio(v-for="item in items", :key="id + getItemValue(item)", v-model="value", :name="id", :text="getItemName(item)", :label="getItemValue(item)", :disabled="disabled", :required="schema.required", :class="schema.fieldClasses")
 
 </template>
 
 <script>
 import { isObject } from "lodash";
 import abstractField from "../abstractField";
+import Radio from "../../utils/Radio/Radio.vue";
 
 export default {
 	mixins: [abstractField],
+
+	components: {
+		Radio
+	},
 
 	computed: {
 		items() {

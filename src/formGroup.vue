@@ -69,6 +69,7 @@ export default {
 				case "submit":
 				case "reset":
 				case "checkbox":
+				case "radio":
 					return false;
 				default:
 					return true;

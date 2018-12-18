@@ -1,7 +1,7 @@
 <template lang="pug">
 .wrapper(v-attributes="'wrapper'")
 	div.flex-view
-		input.form-control(
+		input.text-input(
 			:id="getFieldID(schema)",
 			:type="schema.inputType.toLowerCase()",
 			:value="value",
@@ -178,6 +178,42 @@ export default {
 
 	.flex-view {
 		display: flex;
+	}
+
+	.text-input {
+		width: 100%;
+		outline: none;
+		font-size: 16px ;
+		color: #232322;
+		font-weight: 300;
+		padding: 8px 4px;
+		padding: 12px 0;
+		border: 0;
+		border-bottom: 2px solid #dcdcdc;
+
+		&::placeholder {
+			color: #232322 ;
+			opacity: 1;
+		}
+
+		&:-ms-input-placeholder {
+			color: #232322 ;
+		}
+
+		&::-ms-input-placeholder {
+			color: #232322 ;
+		}
+	}
+
+	.error {
+		background-color: rgba(230, 0, 126, 0.2);
+	}
+
+	@-webkit-keyframes autofill {
+		to {
+			color: #232322;
+			background: transparent;
+		}
 	}
 }
 </style>

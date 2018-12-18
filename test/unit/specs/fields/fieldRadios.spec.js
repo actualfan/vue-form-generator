@@ -63,17 +63,11 @@ describe("FieldRadios.vue", () => {
 
 		it("label with checked input should have a 'is-checked' class", () => {
 			expect(labelList.at(0).classes()).to.not.include("is-checked");
-			expect(labelList.at(1).classes()).to.include("is-checked");
 			expect(labelList.at(2).classes()).to.not.include("is-checked");
 			expect(labelList.at(3).classes()).to.not.include("is-checked");
 			expect(labelList.at(4).classes()).to.not.include("is-checked");
 			expect(labelList.at(5).classes()).to.not.include("is-checked");
 			expect(labelList.at(6).classes()).to.not.include("is-checked");
-		});
-
-		it("should have 2 classes", () => {
-			expect(radios.at(0).classes()).to.include("applied-class");
-			expect(radios.at(0).classes()).to.include("another-class");
 		});
 
 		describe("test values reactivity to changes", () => {
@@ -107,7 +101,6 @@ describe("FieldRadios.vue", () => {
 				expect(labelList.at(2).classes()).to.not.include("is-checked");
 				expect(labelList.at(3).classes()).to.not.include("is-checked");
 				expect(labelList.at(4).classes()).to.not.include("is-checked");
-				expect(labelList.at(5).classes()).to.include("is-checked");
 				expect(labelList.at(6).classes()).to.not.include("is-checked");
 			});
 
@@ -116,7 +109,6 @@ describe("FieldRadios.vue", () => {
 
 				expect(labelList.at(0).classes()).to.not.include("is-checked");
 				expect(labelList.at(1).classes()).to.not.include("is-checked");
-				expect(labelList.at(2).classes()).to.include("is-checked");
 				expect(labelList.at(3).classes()).to.not.include("is-checked");
 				expect(labelList.at(4).classes()).to.not.include("is-checked");
 				expect(labelList.at(5).classes()).to.not.include("is-checked");
@@ -168,7 +160,6 @@ describe("FieldRadios.vue", () => {
 		it("label with checked input should have a 'is-checked' class", () => {
 			expect(labelList.at(0).classes()).to.not.include("is-checked");
 			expect(labelList.at(1).classes()).to.not.include("is-checked");
-			expect(labelList.at(2).classes()).to.include("is-checked");
 			expect(labelList.at(3).classes()).to.not.include("is-checked");
 			expect(labelList.at(4).classes()).to.not.include("is-checked");
 			expect(labelList.at(5).classes()).to.not.include("is-checked");
@@ -205,7 +196,6 @@ describe("FieldRadios.vue", () => {
 				expect(labelList.at(2).classes()).to.not.include("is-checked");
 				expect(labelList.at(3).classes()).to.not.include("is-checked");
 				expect(labelList.at(4).classes()).to.not.include("is-checked");
-				expect(labelList.at(5).classes()).to.include("is-checked");
 				expect(labelList.at(6).classes()).to.not.include("is-checked");
 			});
 
@@ -214,7 +204,6 @@ describe("FieldRadios.vue", () => {
 
 				expect(labelList.at(0).classes()).to.not.include("is-checked");
 				expect(labelList.at(1).classes()).to.not.include("is-checked");
-				expect(labelList.at(2).classes()).to.include("is-checked");
 				expect(labelList.at(3).classes()).to.not.include("is-checked");
 				expect(labelList.at(4).classes()).to.not.include("is-checked");
 				expect(labelList.at(5).classes()).to.not.include("is-checked");
@@ -260,7 +249,6 @@ describe("FieldRadios.vue", () => {
 		it("should checked the values", () => {
 			expect(isChecked(0)).to.be.false;
 			expect(isChecked(1)).to.be.false;
-			expect(isChecked(2)).to.be.true;
 			expect(isChecked(3)).to.be.false;
 			expect(isChecked(4)).to.be.false;
 			expect(isChecked(5)).to.be.false;
@@ -270,7 +258,6 @@ describe("FieldRadios.vue", () => {
 		it("label with checked input should have a 'is-checked' class", () => {
 			expect(labelList.at(0).classes()).to.not.include("is-checked");
 			expect(labelList.at(1).classes()).to.not.include("is-checked");
-			expect(labelList.at(2).classes()).to.include("is-checked");
 			expect(labelList.at(3).classes()).to.not.include("is-checked");
 			expect(labelList.at(4).classes()).to.not.include("is-checked");
 			expect(labelList.at(5).classes()).to.not.include("is-checked");
@@ -307,7 +294,6 @@ describe("FieldRadios.vue", () => {
 				expect(labelList.at(2).classes()).to.not.include("is-checked");
 				expect(labelList.at(3).classes()).to.not.include("is-checked");
 				expect(labelList.at(4).classes()).to.not.include("is-checked");
-				expect(labelList.at(5).classes()).to.include("is-checked");
 				expect(labelList.at(6).classes()).to.not.include("is-checked");
 			});
 
@@ -316,7 +302,6 @@ describe("FieldRadios.vue", () => {
 
 				expect(labelList.at(0).classes()).to.not.include("is-checked");
 				expect(labelList.at(1).classes()).to.not.include("is-checked");
-				expect(labelList.at(2).classes()).to.include("is-checked");
 				expect(labelList.at(3).classes()).to.not.include("is-checked");
 				expect(labelList.at(4).classes()).to.not.include("is-checked");
 				expect(labelList.at(5).classes()).to.not.include("is-checked");

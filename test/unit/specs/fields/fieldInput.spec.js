@@ -43,7 +43,6 @@ describe("fieldInput.vue", () => {
 			expect(wrapper.exists()).to.be.true;
 			expect(input.is("input")).to.be.true;
 			expect(input.attributes().type).to.be.equal("text");
-			expect(input.classes()).to.include("form-control");
 		});
 
 		it("should contain the value", () => {
