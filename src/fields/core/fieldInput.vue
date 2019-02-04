@@ -186,8 +186,6 @@ export default {
 		font-size: 16px ;
 		color: #232322;
 		font-weight: 300;
-		padding: 8px 4px;
-		padding: 12px 0;
 		border: 0;
 		border-bottom: 2px solid #dcdcdc;
 
